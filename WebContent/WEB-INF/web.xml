@@ -4,12 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>Rest</display-name>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/SpringDispatcher-servlet.xml
-		</param-value>
-	</context-param>
 	<!-- This listener will load other application context file in addition 
 		to rest-servlet.xml -->
 	<listener>
@@ -29,6 +23,10 @@
 	<servlet>
 		<servlet-name>SpringDispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/SpringDispatcher-servlet.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
